@@ -86,11 +86,18 @@ LocShare requires a **Mapbox Access Token** to display maps.
 ```text
 ├── src/
 │   ├── components/     # UI components (shadcn + custom)
+│   │   ├── color/      # Color picker components
+│   │   ├── landing/    # Landing page sections
+│   │   ├── layout/     # Layout components (Header, Footer, NavLink)
+│   │   ├── map/        # Map-related components
+│   │   ├── session/    # Session management components
+│   │   └── ui/         # shadcn/ui components
 │   ├── lib/            # Utilities, stores, and configuration
 │   ├── pages/          # Main application views
 │   └── hooks/          # Custom React hooks
 ├── public/             # Static assets
-├── server.js           # Socket.io backend implementation
+├── server/             # Backend server
+│   └── index.js        # Socket.io backend implementation
 └── tailwind.config.ts  # Visual theme configuration
 ```
 
