@@ -2,8 +2,9 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { HowItWorksSection } from "@/components/landing/HowItWorksSection";
-import { PrivacySection } from "@/components/landing/PrivacySection";
 import { CTASection } from "@/components/landing/CTASection";
+import { FeaturesSection } from "@/components/landing/FeaturesSection";
+import { KofiSection } from "@/components/landing/KofiSection";
 
 const Home = () => {
   return (
@@ -11,9 +12,10 @@ const Home = () => {
       <Header />
       <main>
         <HeroSection />
+        <FeaturesSection />
         <HowItWorksSection />
-        <PrivacySection />
         <CTASection />
+        <KofiSection />
       </main>
       <Footer />
     </div>

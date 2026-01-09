@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Users } from "lucide-react";
+import { ArrowRight, Users, Shield } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
@@ -68,50 +68,58 @@ export const HeroSection = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="h-14 px-8 rounded-2xl text-lg border-2 hover:bg-muted/50">
+              <Button
+                variant="outline"
+                size="lg"
+                className="h-14 px-8 rounded-2xl text-lg border-2 hover:bg-muted/50"
+                onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 {t('hero.learnMore')}
               </Button>
             </div>
           </motion.div>
 
           <div className="relative hidden lg:block h-[600px]">
-            <motion.div style={{ y: y1 }} className="absolute right-0 top-0 w-64 h-80 glass rounded-3xl p-4 shadow-2xl z-20 border border-white/20">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                  <Users className="w-5 h-5 text-blue-600" />
-                </div>
-                <div>
-                  <div className="h-2 w-20 bg-muted rounded mb-1" />
-                  <div className="h-2 w-12 bg-muted/50 rounded" />
+            {/* Privacy Focus Card */}
+            <motion.div
+              style={{ y: y1 }}
+              className="absolute right-10 top-20 w-80 glass rounded-[2.5rem] p-8 shadow-2xl z-20 border border-primary/20 bg-background/30 backdrop-blur-xl"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-primary/20 blur-lg rounded-full animate-pulse" />
+                  <Shield className="relative h-8 w-8 text-primary" />
                 </div>
               </div>
-              <div className="space-y-3">
-                <div className="h-16 rounded-xl bg-muted/20 w-full animate-pulse" />
-                <div className="h-16 rounded-xl bg-muted/20 w-full animate-pulse delay-75" />
-                <div className="h-16 rounded-xl bg-muted/20 w-full animate-pulse delay-150" />
+
+              <h3 className="text-2xl font-display font-bold mb-2">{t('privacy.title')}</h3>
+              <p className="text-muted-foreground mb-6 text-sm">{t('privacy.description')}</p>
+
+              <div className="space-y-4">
+                {[
+                  t('privacy.noStorage'),
+                  t('privacy.voluntary'),
+                  t('privacy.ephemeral'),
+                  t('privacy.noAccounts')
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.5 + index * 0.1 }}
+                    className="flex items-start gap-3"
+                  >
+                    <div className="mt-1 h-5 w-5 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                      <div className="h-2 w-2 rounded-full bg-green-500" />
+                    </div>
+                    <span className="text-sm font-medium leading-tight">{item}</span>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
 
-            <motion.div style={{ y: y2 }} className="absolute left-10 bottom-20 w-72 h-44 glass rounded-3xl p-6 shadow-2xl z-30 border border-primary/20">
-              <div className="flex items-center justify-between mb-6">
-                <h4 className="font-bold text-lg">Active Now</h4>
-                <span className="px-2 py-1 rounded-full bg-green-500/10 text-green-500 text-xs font-medium animate-pulse">Live</span>
-              </div>
-              <div className="flex flex-col gap-4">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-bold font-mono tracking-tight">
-                    {time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                  </span>
-                  <span className="text-sm text-muted-foreground font-medium uppercase tracking-wider">Local Time</span>
-                </div>
-                <div className="h-1 w-full bg-muted rounded-full overflow-hidden">
-                  <div className="h-full bg-primary w-2/3 animate-pulse" />
-                </div>
-                <p className="text-xs text-muted-foreground">System Operational</p>
-              </div>
-            </motion.div>
-
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-tr from-primary/10 to-blue-500/10 rounded-full blur-2xl animate-spin-slow" />
+            {/* Decorative background elements */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-primary/10 to-blue-500/10 rounded-full blur-3xl animate-spin-slow pointer-events-none" />
           </div>
         </div>
       </div>

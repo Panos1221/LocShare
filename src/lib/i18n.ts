@@ -15,6 +15,40 @@ const resources = {
         activeNow: "Active Now",
         live: "Live",
       },
+      features: {
+        title: "Why Choose LocShare?",
+        subtitle: "Built for privacy, speed, and ease of use.",
+        privacy: {
+          title: "Private by Design",
+          description: "Tracking is disabled. No data collection."
+        },
+        device: {
+          title: "Any Device",
+          description: "Works on iOS, Android, and Desktop. No app install needed."
+        },
+        battery: {
+          title: "Battery Efficient",
+          description: "Optimized to use minimal battery while keeping you connected."
+        },
+        global: {
+          title: "Works Everywhere",
+          description: "Share your location across the globe with low latency."
+        },
+        speed: {
+          title: "Real-time Sync",
+          description: "See updates instantly as they happen."
+        },
+        secure: {
+          title: "Secure Groups",
+          description: "Only people with your unique passkey can join."
+        }
+      },
+      kofi: {
+        title: "Support Development",
+        description: "LocShare is free and open source. If you find it useful, consider buying me a coffee to help keep the servers running!",
+        button: "Buy me a Coffee",
+        thankYou: "Every donation helps improve the service."
+      },
       howItWorks: {
         title: "How It Works",
         step1: {
@@ -32,7 +66,7 @@ const resources = {
       },
       privacy: {
         title: "Your Privacy Matters",
-        description: "We take your privacy seriously. Here's how we protect you:",
+        description: "Privacy is a core priority. Here's how protection is ensured:",
         noStorage: "No permanent data storage",
         voluntary: "Location sharing is completely voluntary",
         ephemeral: "Data deleted when you disconnect",
@@ -80,7 +114,7 @@ const resources = {
         retry: "Try Again",
       },
       footer: {
-        madeWith: "Made with",
+        madeBy: "Made by",
         privacy: "Privacy First",
       },
     },
@@ -97,6 +131,40 @@ const resources = {
       landing: {
         activeNow: "Activo Ahora",
         live: "En Vivo",
+      },
+      features: {
+        title: "¿Por qué elegir LocShare?",
+        subtitle: "Creado para privacidad, velocidad y facilidad de uso.",
+        privacy: {
+          title: "Privado por diseño",
+          description: "Tus datos de ubicación están encriptados y son efímeros."
+        },
+        device: {
+          title: "Cualquier Dispositivo",
+          description: "Funciona en iOS, Android y PC. Sin instalar apps."
+        },
+        battery: {
+          title: "Batería Eficiente",
+          description: "Optimizado para usar mínima batería mientras te mantiene conectado."
+        },
+        global: {
+          title: "Funciona en Todas Partes",
+          description: "Comparte tu ubicación en todo el mundo con baja latencia."
+        },
+        speed: {
+          title: "Sincronización Real",
+          description: "Ver actualizaciones al instante."
+        },
+        secure: {
+          title: "Grupos Seguros",
+          description: "Solo personas con tu clave única pueden unirse."
+        }
+      },
+      kofi: {
+        title: "Apoya el Desarrollo",
+        description: "LocShare es gratuito y de código abierto. Si te es útil, ¡considera invitarme un café para mantener los servidores!",
+        button: "Invítame un Café",
+        thankYou: "Cada donación ayuda a mejorar el servicio."
       },
       howItWorks: {
         title: "Cómo Funciona",
@@ -115,7 +183,7 @@ const resources = {
       },
       privacy: {
         title: "Tu Privacidad Importa",
-        description: "Tomamos tu privacidad en serio. Así te protegemos:",
+        description: "La privacidad es una prioridad. Así se garantiza la protección:",
         noStorage: "Sin almacenamiento permanente",
         voluntary: "Compartir ubicación es voluntario",
         ephemeral: "Datos eliminados al desconectarte",
@@ -163,7 +231,7 @@ const resources = {
         retry: "Reintentar",
       },
       footer: {
-        madeWith: "Hecho con",
+        madeBy: "Hecho por",
         privacy: "Privacidad Primero",
       },
     },
@@ -180,6 +248,40 @@ const resources = {
       landing: {
         activeNow: "Actif Maintenant",
         live: "En Direct",
+      },
+      features: {
+        title: "Pourquoi Choisir LocShare?",
+        subtitle: "Conçu pour la confidentialité, la vitesse et la simplicité.",
+        privacy: {
+          title: "Privé par Conception",
+          description: "Vos données de location sont cryptées et éphémères."
+        },
+        device: {
+          title: "Tout Appareil",
+          description: "Marche sur iOS, Android et PC. Pas d'installation requise."
+        },
+        battery: {
+          title: "Batterie Efficace",
+          description: "Optimisé pour minimiser l'usage de la batterie."
+        },
+        global: {
+          title: "Marche Partout",
+          description: "Partagez votre position partout dans le monde."
+        },
+        speed: {
+          title: "Sync Temps Réel",
+          description: "Voyez les mises à jour instantanément."
+        },
+        secure: {
+          title: "Groupes Sécurisés",
+          description: "Seuls les détenteurs de la clé peuvent rejoindre."
+        }
+      },
+      kofi: {
+        title: "Soutenir le Développement",
+        description: "LocShare est gratuit. Si vous aimez, offrez-moi un café pour aider !",
+        button: "M'offrir un Café",
+        thankYou: "Chaque don aide à améliorer le service."
       },
       howItWorks: {
         title: "Comment Ça Marche",
@@ -198,7 +300,7 @@ const resources = {
       },
       privacy: {
         title: "Votre Vie Privée Compte",
-        description: "Nous prenons votre vie privée au sérieux. Voici comment nous vous protégeons:",
+        description: "La vie privée est une priorité. Voici comment la protection est assurée :",
         noStorage: "Pas de stockage permanent",
         voluntary: "Partage de position volontaire",
         ephemeral: "Données supprimées à la déconnexion",
@@ -246,7 +348,7 @@ const resources = {
         retry: "Réessayer",
       },
       footer: {
-        madeWith: "Fait avec",
+        madeBy: "Fait par",
         privacy: "Confidentialité d'Abord",
       },
     },
@@ -263,6 +365,40 @@ const resources = {
       landing: {
         activeNow: "Jetzt Aktiv",
         live: "Live",
+      },
+      features: {
+        title: "Warum LocShare?",
+        subtitle: "Gebaut für Privatsphäre, Geschwindigkeit und Einfachheit.",
+        privacy: {
+          title: "Privatphäre Design",
+          description: "Ihre Standortdaten sind verschlüsselt und flüchtig."
+        },
+        device: {
+          title: "Jedes Gerät",
+          description: "Funktioniert auf iOS, Android und Desktop. Keine Installation."
+        },
+        battery: {
+          title: "Batterieeffizient",
+          description: "Optimiert für minimalen Batterieverbrauch."
+        },
+        global: {
+          title: "Funktioniert Überall",
+          description: "Teilen Sie Ihren Standort weltweit."
+        },
+        speed: {
+          title: "Echtzeit-Sync",
+          description: "Sehen Sie Updates sofort."
+        },
+        secure: {
+          title: "Sichere Gruppen",
+          description: "Nur Personen mit Ihrem Schlüssel können beitreten."
+        }
+      },
+      kofi: {
+        title: "Entwicklung Unterstützen",
+        description: "LocShare ist kostenlos. Unterstützen Sie mich mit einem Kaffee!",
+        button: "Kaffee spendieren",
+        thankYou: "Jede Spende hilft den Service zu verbessern."
       },
       howItWorks: {
         title: "Wie es funktioniert",
@@ -281,7 +417,7 @@ const resources = {
       },
       privacy: {
         title: "Ihre Privatsphäre zählt",
-        description: "Wir nehmen Datenschutz ernst. So schützen wir Sie:",
+        description: "Datenschutz hat Priorität. So wird Ihr Schutz gewährleistet:",
         noStorage: "Keine dauerhafte Speicherung",
         voluntary: "Standortfreigabe ist freiwillig",
         ephemeral: "Daten werden beim Trennen gelöscht",
@@ -329,7 +465,7 @@ const resources = {
         retry: "Erneut versuchen",
       },
       footer: {
-        madeWith: "Gemacht mit",
+        madeBy: "Gemacht von",
         privacy: "Privatsphäre zuerst",
       },
     },
@@ -346,6 +482,40 @@ const resources = {
       landing: {
         activeNow: "Attivo Ora",
         live: "Dal Vivo",
+      },
+      features: {
+        title: "Perché LocShare?",
+        subtitle: "Costruito per privacy, velocità e semplicità.",
+        privacy: {
+          title: "Privacy by Design",
+          description: "I tuoi dati sono crittografati ed effimeri."
+        },
+        device: {
+          title: "Qualsiasi Dispositivo",
+          description: "Funziona su iOS, Android e Desktop. Nessuna installazione."
+        },
+        battery: {
+          title: "Batteria Efficiente",
+          description: "Ottimizzato per un consumo minimo della batteria."
+        },
+        global: {
+          title: "Funziona Ovunque",
+          description: "Condividi la tua posizione in tutto il mondo."
+        },
+        speed: {
+          title: "Sync Real-time",
+          description: "Vedi gli aggiornamenti istantaneamente."
+        },
+        secure: {
+          title: "Gruppi Sicuri",
+          description: "Solo chi ha la chiave può unirsi."
+        }
+      },
+      kofi: {
+        title: "Supporta lo Sviluppo",
+        description: "LocShare è gratuito. Se ti piace, offrimi un caffè!",
+        button: "Offrimi un Caffè",
+        thankYou: "Ogni donazione aiuta a migliorare il servizio."
       },
       howItWorks: {
         title: "Come funziona",
@@ -364,7 +534,7 @@ const resources = {
       },
       privacy: {
         title: "La tua privacy conta",
-        description: "Prendiamo sul serio la tua privacy. Ecco come ti proteggiamo:",
+        description: "La privacy è una priorità. Ecco come viene garantita la protezione:",
         noStorage: "Nessuna archiviazione permanente",
         voluntary: "Condivisione volontaria",
         ephemeral: "Dati eliminati alla disconnessione",
@@ -412,7 +582,7 @@ const resources = {
         retry: "Riprova",
       },
       footer: {
-        madeWith: "Fatto con",
+        madeBy: "Fatto da",
         privacy: "Privacy Prima di Tutto",
       },
     },
@@ -429,6 +599,40 @@ const resources = {
       landing: {
         activeNow: "Ativo Agora",
         live: "Ao Vivo",
+      },
+      features: {
+        title: "Porquê LocShare?",
+        subtitle: "Construído para privacidade, velocidade e facilidade.",
+        privacy: {
+          title: "Privacidade por Design",
+          description: "Os seus dados são encriptados e efémeros."
+        },
+        device: {
+          title: "Qualquer Dispositivo",
+          description: "Funciona em iOS, Android e Desktop. Sem instalação."
+        },
+        battery: {
+          title: "Bateria Eficiente",
+          description: "Otimizado para consumo mínimo de bateria."
+        },
+        global: {
+          title: "Funciona em Todo o Lado",
+          description: "Partilhe a sua localização globalmente."
+        },
+        speed: {
+          title: "Sincronização Real",
+          description: "Veja atualizações instantaneamente."
+        },
+        secure: {
+          title: "Grupos Seguros",
+          description: "Apenas pessoas com a chave podem entrar."
+        }
+      },
+      kofi: {
+        title: "Apoiar Desenvolvimento",
+        description: "LocShare é gratuito. Se gosta, ofereça-me um café!",
+        button: "Oferecer um Café",
+        thankYou: "Cada doação ajuda a melhorar o serviço."
       },
       howItWorks: {
         title: "Como funciona",
@@ -447,7 +651,7 @@ const resources = {
       },
       privacy: {
         title: "A sua privacidade importa",
-        description: "Levamos a sua privacidade a sério. Como o protegemos:",
+        description: "A privacidade é uma prioridade. Como a proteção é garantida:",
         noStorage: "Sem armazenamento permanente",
         voluntary: "Partilha voluntária",
         ephemeral: "Dados apagados ao desconectar",
@@ -495,7 +699,7 @@ const resources = {
         retry: "Tentar Novamente",
       },
       footer: {
-        madeWith: "Feito com",
+        madeBy: "Feito por",
         privacy: "Privacidade Primeiro",
       },
     },

@@ -1,4 +1,4 @@
-import { Heart, MapPin } from "lucide-react";
+import { Code, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export function Footer() {
@@ -15,10 +15,17 @@ export function Footer() {
             <span className="font-display font-bold">LocShare</span>
           </div>
 
-          <p className="flex items-center gap-1 text-sm text-muted-foreground">
-            {t('footer.madeWith')}
-            <Heart className="h-4 w-4 fill-destructive text-destructive" />
-            • {t('footer.privacy')}
+          <p className="flex items-center gap-1 text-sm text-muted-foreground group">
+            <Code className="h-4 w-4 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
+            {t('footer.madeBy')}{' '}
+            <a
+              href="https://github.com/Panos1221"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-foreground hover:text-primary transition-colors underline-offset-4 hover:underline"
+            >
+              Panos1221
+            </a>
           </p>
         </div>
       </div>
