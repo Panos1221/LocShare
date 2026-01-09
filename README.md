@@ -24,6 +24,8 @@ LocShare is a simple, elegant, and privacy-focused application that allows you t
 - **📊 Server Health Dashboard**: Password-protected real-time monitoring of active users and sessions.
 - **🌍 Internationalization**: Multi-language support for **English**, **Spanish**, **French**, **German**, **Italian**, and **Portuguese**.
 
+<img width="1080" height="1080" alt="locshare" src="https://github.com/user-attachments/assets/c86737c3-1bad-4dae-a3c7-00dfa0e09678" />
+
 ## 🛠️ Technology Stack
 
 ### Frontend
