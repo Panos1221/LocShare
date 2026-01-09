@@ -72,6 +72,7 @@ const resources = {
         resetBearing: "Reset Bearing",
         zoomIn: "Zoom In",
         zoomOut: "Zoom Out",
+        error: "Geolocation Error",
       },
       common: {
         loading: "Loading...",
@@ -154,6 +155,7 @@ const resources = {
         resetBearing: "Restablecer Orientación",
         zoomIn: "Acercar",
         zoomOut: "Alejar",
+        error: "Error de Geolocalización",
       },
       common: {
         loading: "Cargando...",
@@ -236,6 +238,7 @@ const resources = {
         resetBearing: "Réinitialiser l'Orientation",
         zoomIn: "Zoom Avant",
         zoomOut: "Zoom Arrière",
+        error: "Erreur de Géolocalisation",
       },
       common: {
         loading: "Chargement...",
@@ -318,6 +321,7 @@ const resources = {
         resetBearing: "Ausrichtung zurücksetzen",
         zoomIn: "Vergrößern",
         zoomOut: "Verkleinern",
+        error: "Geolocation-Fehler",
       },
       common: {
         loading: "Laden...",
@@ -400,6 +404,7 @@ const resources = {
         resetBearing: "Reimposta orientamento",
         zoomIn: "Zoom avanti",
         zoomOut: "Zoom indietro",
+        error: "Errore di Geolocalizzazione",
       },
       common: {
         loading: "Caricamento...",
@@ -482,6 +487,7 @@ const resources = {
         resetBearing: "Repor Orientação",
         zoomIn: "Aumentar Zoom",
         zoomOut: "Diminuir Zoom",
+        error: "Erro de Geolocalização",
       },
       common: {
         loading: "A carregar...",

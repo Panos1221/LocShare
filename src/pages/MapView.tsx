@@ -15,6 +15,7 @@ import { useLocationStore, type UserLocation } from "@/lib/locationStore";
 import { mapStyles } from "@/lib/mapStyles";
 import { MapControls } from "@/components/map/MapControls";
 import { socket } from "@/lib/socketClient";
+import { useToast } from "@/hooks/use-toast";
 
 const MapView = () => {
   const { t } = useTranslation();
@@ -22,6 +23,8 @@ const MapView = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const markersRef = useRef<Map<string, mapboxgl.Marker>>(new Map());
+  const { toast } = useToast();
+  const hasZoomedToUserRef = useRef(false);
 
   const { session, members, isConnected, mapboxToken, setMapboxToken, clearSession, setMembers, setConnected, updateMember, stopSharing, resumeSharing } = useLocationStore();
 
@@ -34,7 +37,6 @@ const MapView = () => {
     const style = mapStyles.find(s => s.id === 'navigation-day-v1');
     return isDark ? style?.dark || '' : style?.light || '';
   });
-  const [hasZoomedToUser, setHasZoomedToUser] = useState(false);
   const [mapBearing, setMapBearing] = useState(0);
 
   // Redirect if no session
@@ -128,6 +130,7 @@ const MapView = () => {
       icon: session.icon,
       latitude: currentLocation?.coords.latitude || 0,
       longitude: currentLocation?.coords.longitude || 0,
+      timestamp: Date.now(),
     };
 
     console.log('Joining session:', session.passkey, userPayload);
@@ -144,18 +147,28 @@ const MapView = () => {
   useEffect(() => {
     if (!mapboxToken || !session) return;
 
+    if (!navigator.geolocation) {
+      toast({
+        title: t('common.error'),
+        description: "Geolocation is not supported by your browser",
+        variant: "destructive",
+      });
+      return;
+    }
+
     const watchId = navigator.geolocation.watchPosition(
       (position) => {
+        const { latitude, longitude } = position.coords;
         setCurrentLocation(position);
 
         // Zoom to user location on first position
-        if (!hasZoomedToUser && map.current) {
+        if (!hasZoomedToUserRef.current && map.current) {
           map.current.flyTo({
-            center: [position.coords.longitude, position.coords.latitude],
+            center: [longitude, latitude],
             zoom: 13,
             duration: 2000,
           });
-          setHasZoomedToUser(true);
+          hasZoomedToUserRef.current = true;
         }
 
         // Emit location update
@@ -167,14 +180,26 @@ const MapView = () => {
               name: session.name,
               color: session.color,
               icon: session.icon,
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude,
+              latitude: latitude,
+              longitude: longitude,
             }
           });
         }
       },
       (error) => {
         console.error("Geolocation error:", error);
+
+        // Only show toast for permanent errors or denied permission
+        if (error.code === error.PERMISSION_DENIED) {
+          toast({
+            title: t('map.error'),
+            description: "Location permission denied. Please enable it to share your position.",
+            variant: "destructive",
+          });
+        } else if (error.code === error.POSITION_UNAVAILABLE) {
+          // This can be intermittent, so we just log it unless it persists
+          console.warn("Position unavailable, retrying...");
+        }
       },
       {
         enableHighAccuracy: true,
@@ -184,7 +209,7 @@ const MapView = () => {
     );
 
     return () => navigator.geolocation.clearWatch(watchId);
-  }, [mapboxToken, session, hasZoomedToUser, socket.connected]);
+  }, [mapboxToken, session, toast, t]);
   // Added socket.connected to dependencies effectively, but actually 
   // since we removed the guard clause, it will run regardless. 
   // But we want it to re-run/emit when socket connects? 
@@ -257,6 +282,13 @@ const MapView = () => {
 
     // Add or update markers
     members.forEach((member) => {
+      // Basic sanitization
+      if (typeof member.latitude !== 'number' || typeof member.longitude !== 'number' ||
+        isNaN(member.latitude) || isNaN(member.longitude)) {
+        console.warn(`Invalid coordinates for member ${member.id}:`, member);
+        return;
+      }
+
       const existingMarker = markersRef.current.get(member.id);
 
       if (existingMarker) {
@@ -269,9 +301,16 @@ const MapView = () => {
           .setLngLat([member.longitude, member.latitude])
           .addTo(map.current!);
 
-        // Add click handler to fly to member location
+        // Add click handler to fly to member location using marker's latest position
         el.addEventListener('click', () => {
-          flyToMember(member);
+          const latestPos = marker.getLngLat();
+          if (map.current) {
+            map.current.flyTo({
+              center: latestPos,
+              zoom: 15,
+              duration: 1500,
+            });
+          }
         });
 
         markersRef.current.set(member.id, marker);
