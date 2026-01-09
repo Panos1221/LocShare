@@ -50,7 +50,7 @@ LocShare is a simple, elegant, and privacy-focused application that allows you t
 
 1. Clone the repository:
    ```bash
-   git clone <YOUR_GIT_URL>
+   git clone https://github.com/Panos1221/LocShare.git
    cd group-share
    ```
 
@@ -80,6 +80,23 @@ The app will be available at the URL shown in your terminal (usually `http://loc
 LocShare requires a **Mapbox Access Token** to display maps. 
 - You will be prompted to enter your token within the app if it's not detected.
 - You can get a free token by creating an account at [mapbox.com](https://www.mapbox.com/).
+
+### 🌍 Environment Variables
+
+Create a `.env` file in the root directory with the following structure:
+
+```env
+# Backend Server Configuration
+PORT=3000
+HEALTH_PASSWORD=your_secure_password_here
+
+# Frontend Configuration (Vite)
+# Optional: WebSocket server URL (defaults to localhost:3000 in dev, window.location.origin in prod)
+VITE_WS_URL=http://localhost:3000
+
+# Mapbox Access Token (can also be set via localStorage in the app)
+VITE_MAPBOX_TOKEN=your_mapbox_token_here
+```
 
 ## 📁 Project Structure
 
