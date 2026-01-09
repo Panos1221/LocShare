@@ -99,12 +99,35 @@ export function MembersList({ members, onMemberClick, currentLocation }: Members
       </motion.div>
 
       {/* Mobile View - Bottom Sheet Style */}
-      <div className="md:hidden fixed bottom-24 left-0 right-0 z-40 px-2 pointer-events-none">
+      <div className="md:hidden fixed inset-0 z-40 pointer-events-none">
+        {/* Backdrop for clicking outside */}
+        <AnimatePresence>
+          {isMobileExpanded && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileExpanded(false)}
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm pointer-events-auto"
+            />
+          )}
+        </AnimatePresence>
+
         <motion.div
           initial={false}
           animate={{ y: isMobileExpanded ? 0 : "calc(100% - 65px)" }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="pointer-events-auto bg-background/80 backdrop-blur-xl border border-white/20 shadow-2xl rounded-t-3xl overflow-hidden"
+          drag="y"
+          dragConstraints={{ top: 0, bottom: 0 }}
+          dragElastic={0.1}
+          onDragEnd={(_, info) => {
+            if (info.offset.y < -50 || info.velocity.y < -500) setIsMobileExpanded(true);
+            if (info.offset.y > 50 || info.velocity.y > 500) setIsMobileExpanded(false);
+          }}
+          className={cn(
+            "absolute bottom-0 left-0 right-0 pointer-events-auto backdrop-blur-xl border-t border-white/20 shadow-2xl rounded-t-3xl overflow-hidden transition-colors duration-300",
+            isMobileExpanded ? "bg-background" : "bg-background/80"
+          )}
         >
           {/* Handle */}
           <div
@@ -135,7 +158,7 @@ export function MembersList({ members, onMemberClick, currentLocation }: Members
               </Button>
             </div>
 
-            <div className="max-h-[50vh] overflow-y-auto scrollbar-hide space-y-2 pb-8">
+            <div className="max-h-[92vh] overflow-y-auto scrollbar-hide space-y-2 pb-8">
               {sortedMembers.map((member) => (
                 <MemberCard
                   key={member.id}
@@ -216,7 +239,7 @@ function MemberCard({
     e.stopPropagation();
     navigator.clipboard.writeText(`${member.latitude}, ${member.longitude}`);
     toast({
-      description: "Coordinates copied to clipboard",
+      description: <span className="text-[11px] sm:text-sm">Coordinates copied to clipboard</span>,
     });
   };
 
@@ -225,7 +248,7 @@ function MemberCard({
     if (address) {
       navigator.clipboard.writeText(address.full);
       toast({
-        description: "Full address copied to clipboard",
+        description: <span className="text-[11px] sm:text-sm">Full address copied to clipboard</span>,
       });
     }
   };

@@ -506,7 +506,7 @@ const MapView = () => {
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="absolute bottom-6 left-1/2 z-30 -translate-x-1/2 transform rounded-full glass border border-border/50 px-4 py-2 shadow-soft"
+          className="absolute bottom-6 left-1/2 z-30 -translate-x-1/2 transform rounded-full glass border border-border/50 px-4 py-2 shadow-soft hidden sm:flex"
         >
           <p className="flex items-center gap-2 text-sm text-muted-foreground whitespace-nowrap">
             <span className="relative flex h-2 w-2">
@@ -518,8 +518,8 @@ const MapView = () => {
         </motion.div>
       )}
 
-      {/* Custom Map Controls - Bottom Right */}
-      <div className="absolute bottom-8 right-4 z-30 flex flex-col items-end gap-3 pb-6 sm:bottom-8 sm:right-6">
+      {/* Custom Map Controls - Top Right on Mobile, Bottom Right on Desktop */}
+      <div className="absolute top-32 right-4 sm:top-auto sm:bottom-8 sm:right-6 z-30 flex flex-col items-end gap-3">
         <MapControls
           onZoomIn={handleZoomIn}
           onZoomOut={handleZoomOut}

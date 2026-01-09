@@ -26,7 +26,7 @@ export function MapHeader({
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="absolute left-0 right-0 top-4 z-40 flex justify-center pointer-events-none"
+      className="absolute left-0 right-0 top-12 sm:top-4 z-40 flex justify-center pointer-events-none"
     >
       <div className="glass pointer-events-auto mx-4 flex items-center justify-between gap-4 rounded-full border border-border/50 px-2 py-2 shadow-soft backdrop-blur-md sm:gap-6 sm:px-6">
         {/* Left: Logo */}

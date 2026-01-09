@@ -30,26 +30,39 @@ export function Header() {
         </Link>
       </motion.div>
 
-      {/* Bottom Right - Selectors */}
+      {/* Selectors - Bottom Right (Desktop) / Vertically Stacked (Mobile) */}
       <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "circOut", delay: 0.2 }}
-        className="fixed bottom-8 right-8 z-50 flex items-center gap-3"
+        className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 flex flex-col sm:flex-row items-end sm:items-center gap-3"
       >
-        <div className="glass px-4 py-2 rounded-2xl border border-white/20 shadow-2xl backdrop-blur-xl bg-white/10 dark:bg-black/40 flex items-center gap-3">
+        <div className="glass px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl border border-white/20 shadow-2xl backdrop-blur-xl bg-white/10 dark:bg-black/40 flex items-center gap-2 sm:gap-3">
           <LanguageSelector />
-          <div className="w-px h-4 bg-border/50" />
+          <div className="w-px h-3 sm:h-4 bg-border/50" />
           <ThemeToggle />
+        </div>
+
+        {/* Mobile Get Started - Compact version next to selectors or stacked */}
+        <div className="sm:hidden">
+          <Link
+            to="/register"
+            className="glass group flex items-center gap-2 px-4 py-2.5 rounded-xl border border-primary/20 hover:border-primary/50 shadow-2xl backdrop-blur-xl bg-primary/10 hover:bg-primary/20 transition-all duration-300"
+          >
+            <Rocket className="w-4 h-4 text-primary group-hover:scale-110" />
+            <span className="font-display font-bold text-xs tracking-tight text-foreground">
+              {i18n.t('hero.getStarted')}
+            </span>
+          </Link>
         </div>
       </motion.div>
 
-      {/* Bottom Left - Get Started Button */}
+      {/* Desktop Get Started Button - Bottom Left */}
       <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "circOut", delay: 0.4 }}
-        className="fixed bottom-8 left-8 z-50"
+        className="fixed bottom-8 left-8 z-50 hidden sm:block"
       >
         <Link
           to="/register"

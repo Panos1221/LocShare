@@ -11,6 +11,12 @@ const resources = {
         getStarted: "Get Started",
         learnMore: "Learn More",
       },
+      install: {
+        title: "Install as App",
+        ios: "Tap the share button and select 'Add to Home Screen'",
+        android: "Tap the menu button and select 'Install App'",
+        tip: "Access LocShare faster from your home screen"
+      },
       landing: {
         activeNow: "Active Now",
         live: "Live",
@@ -127,6 +133,12 @@ const resources = {
         description: "La app más simple para compartir ubicación. Sin cuentas, sin contraseñas, sin datos personales. Solo comparte tu ubicación con amigos usando una clave.",
         getStarted: "Comenzar",
         learnMore: "Saber Más",
+      },
+      install: {
+        title: "Instalar como App",
+        ios: "Toca el botón compartir y selecciona 'Añadir a la pantalla de inicio'",
+        android: "Toca el botón de menú y selecciona 'Instalar aplicación'",
+        tip: "Accede a LocShare más rápido desde tu pantalla de inicio"
       },
       landing: {
         activeNow: "Activo Ahora",
@@ -245,6 +257,12 @@ const resources = {
         getStarted: "Commencer",
         learnMore: "En Savoir Plus",
       },
+      install: {
+        title: "Installer comme App",
+        ios: "Appuyez sur le bouton de partage et sélectionnez 'Sur l'écran d'accueil'",
+        android: "Appuyez sur le bouton menu et sélectionnez 'Installer l'application'",
+        tip: "Accédez à LocShare plus rapidement depuis votre écran d'accueil"
+      },
       landing: {
         activeNow: "Actif Maintenant",
         live: "En Direct",
@@ -361,6 +379,12 @@ const resources = {
         description: "Die einfachste App zum Teilen des Standorts. Keine Konten, keine Passwörter, keine persönlichen Daten. Teilen Sie einfach Ihren Standort mit Freunden über einen Zugangsschlüssel.",
         getStarted: "Loslegen",
         learnMore: "Mehr erfahren",
+      },
+      install: {
+        title: "Als App installieren",
+        ios: "Tippen Sie auf die Teilen-Schaltfläche und wählen Sie 'Zum Home-Bildschirm'",
+        android: "Tippen Sie auf die Menü-Schaltfläche und wählen Sie 'App installieren'",
+        tip: "Greifen Sie schneller von Ihrem Home-Bildschirm auf LocShare zu"
       },
       landing: {
         activeNow: "Jetzt Aktiv",
@@ -479,6 +503,12 @@ const resources = {
         getStarted: "Inizia",
         learnMore: "Scopri di più",
       },
+      install: {
+        title: "Installa come App",
+        ios: "Tocca il pulsante di condivisione e seleziona 'Aggiungi alla schermata Home'",
+        android: "Tocca il pulsante del menu e seleziona 'Installa applicazione'",
+        tip: "Accedi a LocShare più velocemente dalla tua schermata Home"
+      },
       landing: {
         activeNow: "Attivo Ora",
         live: "Dal Vivo",
@@ -595,6 +625,12 @@ const resources = {
         description: "A app mais simples para partilhar localização. Sem contas, senhas ou dados pessoais. Apenas partilhe com amigos usando uma chave de acesso.",
         getStarted: "Começar",
         learnMore: "Saber Mais",
+      },
+      install: {
+        title: "Instalar como App",
+        ios: "Toque no botão de partilha e selecione 'Adicionar ao Ecrã Principal'",
+        android: "Toque no botão do menu e selecione 'Instalar aplicação'",
+        tip: "Aceda ao LocShare mais rapidamente a partir do seu ecrã principal"
       },
       landing: {
         activeNow: "Ativo Agora",

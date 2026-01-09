@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Users, Shield } from "lucide-react";
+import { ArrowRight, Users, Shield, Apple, Smartphone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
@@ -77,6 +77,51 @@ export const HeroSection = () => {
                 {t('hero.learnMore')}
               </Button>
             </div>
+
+            {/* Mobile-only Install App Instructions */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="mt-12 lg:hidden"
+            >
+              <div className="glass rounded-[2rem] p-6 border border-primary/20 bg-background/30 backdrop-blur-xl">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Shield className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-lg">{t('install.title')}</h3>
+                    <p className="text-xs text-muted-foreground">{t('install.tip')}</p>
+                  </div>
+                </div>
+
+                <div className="grid gap-3">
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
+                    <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+                      <Apple className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold text-primary uppercase mb-1 block">iOS</span>
+                      <p className="text-sm leading-tight text-muted-foreground">
+                        {t('install.ios')}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
+                    <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                      <Smartphone className="h-5 w-5 text-blue-500" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold text-blue-500 uppercase mb-1 block">Android</span>
+                      <p className="text-sm leading-tight text-muted-foreground">
+                        {t('install.android')}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
           <div className="relative hidden lg:block h-[600px]">
