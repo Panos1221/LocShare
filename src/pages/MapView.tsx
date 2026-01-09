@@ -16,6 +16,8 @@ import { mapStyles } from "@/lib/mapStyles";
 import { MapControls } from "@/components/map/MapControls";
 import { socket } from "@/lib/socketClient";
 import { useToast } from "@/hooks/use-toast";
+import { calculateDistance } from "@/lib/geoUtils";
+
 
 const MapView = () => {
   const { t } = useTranslation();
@@ -268,7 +270,9 @@ const MapView = () => {
     }
   }, []);
 
-  // Update markers when members change
+
+
+  // Update markers when members change or current location changes
   useEffect(() => {
     if (!map.current) return;
 
@@ -290,13 +294,48 @@ const MapView = () => {
       }
 
       const existingMarker = markersRef.current.get(member.id);
+      const isSelf = member.id === socket.id; // Identify self by socket ID
+
+      // Calculate distance if available and not self
+      let distanceStr: string | undefined;
+      if (currentLocation && !isSelf && member.id !== 'current-user') {
+        distanceStr = calculateDistance(
+          currentLocation.coords.latitude,
+          currentLocation.coords.longitude,
+          member.latitude,
+          member.longitude
+        );
+      }
 
       if (existingMarker) {
         // Smooth transition using setLngLat is native to Mapbox Marker
         existingMarker.setLngLat([member.longitude, member.latitude]);
+
+        // Update marker content and container styles
+        // We recreate the element to get the latest proper styles/structure
+        const newEl = createMarkerElement(member, isSelf, distanceStr);
+        const el = existingMarker.getElement();
+
+        // Safe Update: Only sync dimensions and critical layout props
+        // DO NOT overwrite cssText as it wipes Mapbox's transform: translate(...)
+        el.style.width = newEl.style.width;
+        el.style.height = newEl.style.height;
+        el.style.cursor = newEl.style.cursor;
+        // Ensure display is block as per new definition
+        el.style.display = newEl.style.display;
+
+        const currentInner = el.innerHTML;
+        const newInner = newEl.innerHTML;
+
+        if (currentInner !== newInner) {
+          el.innerHTML = newInner;
+        }
+
       } else {
-        const isSelf = member.id === socket.id; // Identify self by socket ID
-        const el = createMarkerElement(member, isSelf);
+        const el = createMarkerElement(member, isSelf, distanceStr);
+        // The marker element is strictly sized to the pin (48x56px).
+        // The label hangs absolutely below it.
+        // Therefore, 'bottom' anchor correctly aligns the tip of the pin to the location.
         const marker = new mapboxgl.Marker({ element: el, anchor: 'bottom' })
           .setLngLat([member.longitude, member.latitude])
           .addTo(map.current!);
@@ -316,7 +355,8 @@ const MapView = () => {
         markersRef.current.set(member.id, marker);
       }
     });
-  }, [members]);
+  }, [members, currentLocation]);
+
 
   // Handle theme changes for map style
   useEffect(() => {
@@ -457,6 +497,7 @@ const MapView = () => {
         <MembersList
           members={members}
           onMemberClick={flyToMember}
+          currentLocation={currentLocation}
         />
       </div>
 

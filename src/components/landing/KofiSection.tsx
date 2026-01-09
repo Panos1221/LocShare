@@ -35,7 +35,7 @@ export const KofiSection = () => {
                         </p>
 
                         <a
-                            href="https://ko-fi.com"
+                            href="https://ko-fi.com/panos1221"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-block"

@@ -34,7 +34,7 @@ const Register = () => {
     }
   };
 
-  const isValid = name.trim().length > 0 && passkey.trim().length > 0;
+  const isValid = name.trim().length > 0 && passkey.trim().length >= 3;
 
   return (
     <div className="min-h-screen bg-background gradient-hero">
@@ -114,9 +114,6 @@ const Register = () => {
 
                 {/* Color Picker */}
                 <div className="space-y-3">
-                  <Label className="flex items-center gap-2">
-                    {t('register.color')}
-                  </Label>
                   <AdvancedColorPicker
                     color={color}
                     icon={icon}

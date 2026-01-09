@@ -10,12 +10,15 @@ LocShare is a simple, elegant, and privacy-focused application that allows you t
 - **🛡️ Privacy First**: 
   - No user accounts or passwords required.
   - No personal data or location history stored.
+  - **Stop Sharing** toggle to instantly hide your location while staying in the room.
   - Ephemeral sessions that disappear when you're done.
-- **🗺️ Interactive Maps**: Beautiful, high-performance vector maps powered by Mapbox GL JS.
+- **🗺️ Interactive Maps**: High-performance vector maps powered by Mapbox GL JS with support for multiple styles (Streets, Navigation, Dark, Satellite) and a one-click **Compass** to reset bearing to North.
+- **🧭 Smart Navigation**: One-tap navigation shortcuts for **Google Maps**, **Apple Maps**, and **Waze**.
+- **📏 Distance Tracking**: Real-time distance calculation between you and other group members.
+- **🏡 Live Addresses**: Integrated reverse-geocoding displays the nearest street address for all members.
 - **🎨 Personalized Pins**: Customize your profile with a range of colors and icons.
-- **🧭 Smart Navigation**: Multiple map styles including detailed navigation and dark modes.
-- **📊 Server Health Dashboard**: Built-in real-time monitoring of active users and sessions.
-- **🌍 Internationalization**: Multi-language support out of the box.
+- **📊 Server Health Dashboard**: Password-protected real-time monitoring of active users and sessions.
+- **🌍 Internationalization**: Multi-language support for **English**, **Spanish**, **French**, **German**, **Italian**, and **Portuguese**.
 
 ## 🛠️ Technology Stack
 
@@ -92,4 +95,4 @@ LocShare requires a **Mapbox Access Token** to display maps.
 This project is licensed under the MIT License.
 
 ---
-Built with ❤️ for privacy and real-time connectivity.
+Built for privacy and real-time connectivity.

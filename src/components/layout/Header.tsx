@@ -6,30 +6,42 @@ import { Navigation } from "lucide-react";
 
 export function Header() {
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "circOut" }}
-      className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-center pointer-events-none"
-    >
-      <div className="glass px-6 py-3 rounded-full border border-white/20 shadow-xl shadow-black/5 pointer-events-auto backdrop-blur-xl bg-white/10 dark:bg-black/20 flex items-center gap-8">
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-            <Navigation className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" />
+    <>
+      {/* Top Left - App Name & Logo */}
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "circOut" }}
+        className="fixed top-0 left-0 z-50 p-8 pt-10"
+      >
+        <Link to="/" className="flex items-center gap-4 group">
+          <div className="relative flex items-center justify-center w-12 h-12 rounded-2xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 shadow-sm border border-primary/20 backdrop-blur-md">
+            <Navigation className="w-6 h-6 text-primary group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
           </div>
-          <span className="font-display font-bold text-lg tracking-tight">
-            LocShare
-          </span>
+          <div className="flex flex-col">
+            <span className="font-display font-black text-2xl sm:text-3xl tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
+              LocShare
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-primary/60 ml-0.5">
+              Group Live Tracker
+            </span>
+          </div>
         </Link>
+      </motion.div>
 
-        {/* Separator */}
-        <div className="w-px h-6 bg-border/50" />
-
-        <div className="flex items-center gap-2">
+      {/* Bottom Right - Selectors */}
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "circOut", delay: 0.2 }}
+        className="fixed bottom-8 right-8 z-50 flex items-center gap-3"
+      >
+        <div className="glass px-4 py-2 rounded-2xl border border-white/20 shadow-2xl backdrop-blur-xl bg-white/10 dark:bg-black/40 flex items-center gap-3">
           <LanguageSelector />
+          <div className="w-px h-4 bg-border/50" />
           <ThemeToggle />
         </div>
-      </div>
-    </motion.header>
+      </motion.div>
+    </>
   );
 }

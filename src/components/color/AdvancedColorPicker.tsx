@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Palette, Car, Home, Briefcase, User, Star, Heart, Footprints, Bike, Plane, Coffee, Music, ShoppingCart, Camera, Anchor } from "lucide-react"; // More icons
+import { Check, Palette, Car, Home, Briefcase, User, Star, Heart, Footprints, Bike, Plane, Coffee, Music, ShoppingCart, Camera, Anchor, Baby, Cat, Dog, Gamepad2, GraduationCap, ChefHat, Smile, UserCheck, Users, Accessibility } from "lucide-react"; // More icons
 import { HexColorPicker } from "react-colorful";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -43,6 +43,16 @@ const icons = [
     { id: 'shop', icon: ShoppingCart, label: 'Shop' },
     { id: 'camera', icon: Camera, label: 'Photo' },
     { id: 'anchor', icon: Anchor, label: 'Anchor' },
+    { id: 'baby', icon: Baby, label: 'Baby' },
+    { id: 'cat', icon: Cat, label: 'Cat' },
+    { id: 'dog', icon: Dog, label: 'Dog' },
+    { id: 'gamer', icon: Gamepad2, label: 'Gamer' },
+    { id: 'student', icon: GraduationCap, label: 'Student' },
+    { id: 'chef', icon: ChefHat, label: 'Chef' },
+    { id: 'happy', icon: Smile, label: 'Happy' },
+    { id: 'verified', icon: UserCheck, label: 'Verified' },
+    { id: 'group', icon: Users, label: 'Group' },
+    { id: 'accessibility', icon: Accessibility, label: 'Access' },
 ];
 
 export function AdvancedColorPicker({ color, icon = 'user', onColorChange, onIconChange }: ColorPickerProps) {
@@ -143,12 +153,12 @@ export function AdvancedColorPicker({ color, icon = 'user', onColorChange, onIco
                         <motion.button
                             key={id}
                             type="button"
-                            whileHover={{ scale: 1.1, backgroundColor: 'rgba(0,0,0,0.05)' }}
+                            whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => onIconChange(id)}
                             className={cn(
-                                "flex h-10 w-10 items-center justify-center rounded-xl transition-colors",
-                                icon === id ? "bg-primary text-primary-foreground shadow-soft" : "bg-muted/50 text-muted-foreground hover:bg-muted"
+                                "flex h-10 w-10 items-center justify-center rounded-xl transition-all focus:outline-none focus-visible:ring-0",
+                                icon === id ? "bg-blue-600 text-white shadow-glow ring-2 ring-blue-600/20" : "text-foreground/50 hover:text-foreground"
                             )}
                             title={id}
                         >
