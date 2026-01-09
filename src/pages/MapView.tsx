@@ -8,12 +8,12 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { MapHeader } from "@/components/MapHeader";
-import { MembersList } from "@/components/MembersList";
-import { createMarkerElement } from "@/components/MapMarker";
+import { MapHeader } from "@/components/map/MapHeader";
+import { MembersList } from "@/components/session/MembersList";
+import { createMarkerElement } from "@/components/map/MapMarker";
 import { useLocationStore, type UserLocation } from "@/lib/locationStore";
 import { mapStyles } from "@/lib/mapStyles";
-import { MapControls } from "@/components/MapControls";
+import { MapControls } from "@/components/map/MapControls";
 import { socket } from "@/lib/socketClient";
 
 const MapView = () => {

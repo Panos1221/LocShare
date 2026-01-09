@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ThemeToggle } from "./ui/ThemeToggle";
-import { LanguageSelector } from "./ui/LanguageSelector";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { LanguageSelector } from "@/components/ui/LanguageSelector";
 import { Navigation } from "lucide-react";
 
 export function Header() {

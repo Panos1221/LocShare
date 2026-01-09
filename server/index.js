@@ -4,18 +4,85 @@ import { Server } from 'socket.io';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import cookieParser from 'cookie-parser';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(cors());
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// In-memory store for system events
+const systemEvents = [
+    { timestamp: new Date(), message: 'Server initialized' }
+];
+
+const addSystemEvent = (message) => {
+    systemEvents.unshift({ timestamp: new Date(), message });
+    if (systemEvents.length > 50) systemEvents.pop(); // Keep last 50 events
+};
+
+// Auth middleware for health page
+const healthAuth = (req, res, next) => {
+    const healthCookie = req.cookies.health_access;
+    if (healthCookie === process.env.HEALTH_PASSWORD) {
+        next();
+    } else {
+        res.status(401).send(`
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Dashboard Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-slate-950 text-slate-200 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-slate-900/50 border border-slate-800 p-8 rounded-2xl backdrop-blur-sm">
+        <h1 class="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">Health Access Restricted</h1>
+        <form action="/health/login" method="POST" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-slate-400 mb-2">Access Password</label>
+                <input type="password" name="password" required 
+                    class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all">
+            </div>
+            <button type="submit" 
+                class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-xl transition-all shadow-lg shadow-blue-900/20">
+                Unlock Dashboard
+            </button>
+        </form>
+        <p class="mt-6 text-center text-xs text-slate-500 uppercase tracking-widest">System Monitoring v1.0</p>
+    </div>
+</body>
+</html>
+        `);
+    }
+};
+
+app.post('/health/login', (req, res) => {
+    const { password } = req.body;
+    if (password === process.env.HEALTH_PASSWORD) {
+        res.cookie('health_access', password, {
+            maxAge: 10 * 60 * 1000, // 10 minutes
+            httpOnly: true
+        });
+        res.redirect('/health');
+    } else {
+        res.redirect('/health');
+    }
+});
 
 // Serve static files from the Vite build directory
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // Health API endpoint (JSON)
-app.get('/health/api', (req, res) => {
+app.get('/health/api', healthAuth, (req, res) => {
     res.json({
         status: 'healthy',
         timestamp: new Date().toISOString(),
@@ -27,12 +94,13 @@ app.get('/health/api', (req, res) => {
         sockets: {
             active_connections: io.engine.clientsCount,
             active_sessions: sessions.size,
-        }
+        },
+        events: systemEvents
     });
 });
 
 // Visual Health Dashboard
-app.get('/health', (req, res) => {
+app.get('/health', healthAuth, (req, res) => {
     res.send(`
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +114,10 @@ app.get('/health', (req, res) => {
         body { font-family: 'Inter', sans-serif; }
         .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .status-dot { box-shadow: 0 0 15px currentColor; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-200 min-h-screen flex items-center justify-center p-4">
@@ -57,9 +129,12 @@ app.get('/health', (req, res) => {
                 <h1 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">System Status</h1>
                 <p class="text-slate-400 mt-1">Real-time WebSocket Server Metrics</p>
             </div>
-            <div class="flex items-center gap-3 bg-emerald-500/10 px-4 py-2 rounded-full border border-emerald-500/20 text-emerald-400">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 status-dot animate-pulse"></span>
-                <span class="font-medium text-sm">OPERATIONAL</span>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-3 bg-emerald-500/10 px-4 py-2 rounded-full border border-emerald-500/20 text-emerald-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 status-dot animate-pulse"></span>
+                    <span class="font-medium text-sm">OPERATIONAL</span>
+                </div>
+                <button onclick="document.cookie='health_access=; Max-Age=0; path=/'; location.reload();" class="text-slate-500 hover:text-slate-300 transition-colors text-sm font-medium">LOGOUT</button>
             </div>
         </div>
 
@@ -80,7 +155,7 @@ app.get('/health', (req, res) => {
             <!-- Sessions -->
             <div class="glass rounded-2xl p-6 relative overflow-hidden group hover:bg-white/5 transition-all">
                 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 9h-2V7h2v5zm-4 13H8v-2h8v2zm0-9h-2V7h2v5z"/></svg>
+                    <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
                 </div>
                 <h3 class="text-slate-400 font-medium mb-2">Active Rooms</h3>
                 <div class="text-4xl font-bold text-white flex items-end gap-2">
@@ -102,11 +177,8 @@ app.get('/health', (req, res) => {
         <!-- Log Terminal -->
         <div class="glass rounded-2xl p-6">
             <h3 class="text-slate-400 text-sm font-medium mb-4 uppercase tracking-wider">System Events</h3>
-            <div class="font-mono text-sm space-y-2 h-48 overflow-y-auto pr-2" id="logs">
-                <div class="flex gap-3 text-slate-500">
-                    <span>${new Date().toLocaleTimeString()}</span>
-                    <span>Dashboard initialized...</span>
-                </div>
+            <div class="font-mono text-sm space-y-2 h-64 overflow-y-auto pr-2" id="logs">
+                <div class="flex gap-3 text-slate-500 italic">Loading events...</div>
             </div>
         </div>
     </div>
@@ -122,19 +194,30 @@ app.get('/health', (req, res) => {
         const updateStats = async () => {
             try {
                 const res = await fetch('/health/api');
+                if (res.status === 401) {
+                    location.reload();
+                    return;
+                }
                 const data = await res.json();
                 
                 document.getElementById('connections').textContent = data.sockets.active_connections;
                 document.getElementById('sessions').textContent = data.sockets.active_sessions;
                 document.getElementById('uptime').textContent = formatTime(data.server.uptime);
                 
-                // Add log if something changed (simulated for now)
+                const logsContainer = document.getElementById('logs');
+                logsContainer.innerHTML = data.events.map(event => \`
+                    <div class="flex gap-3 text-slate-400 border-b border-white/5 py-1">
+                        <span class="text-slate-600 shrink-0">\${new Date(event.timestamp).toLocaleTimeString()}</span>
+                        <span class="\${event.message.includes('joined') ? 'text-blue-400' : event.message.includes('created') ? 'text-emerald-400' : event.message.includes('closed') ? 'text-rose-400' : 'text-slate-300'}">\${event.message}</span>
+                    </div>
+                \`).join('');
+                
             } catch (err) {
                 console.error('Failed to fetch stats');
             }
         };
 
-        setInterval(updateStats, 1000); // 1s refresh
+        setInterval(updateStats, 2000); // 2s refresh
         updateStats();
     </script>
 </body>
@@ -162,6 +245,7 @@ io.on('connection', (socket) => {
         // Initialize session if not exists
         if (!sessions.has(sessionId)) {
             sessions.set(sessionId, new Map());
+            addSystemEvent(`New room created: ${sessionId}`);
         }
 
         const sessionUsers = sessions.get(sessionId);
@@ -169,6 +253,7 @@ io.on('connection', (socket) => {
 
         // Add/Update user
         sessionUsers.set(user.id, updatedUser);
+        addSystemEvent(`User ${user.id} joined session ${sessionId}`);
 
         // Broadcast updated membership list to all in room
         const membersList = Array.from(sessionUsers.values());
@@ -182,10 +267,12 @@ io.on('connection', (socket) => {
             if (sessions.has(sessionId)) {
                 const currentSession = sessions.get(sessionId);
                 currentSession.delete(user.id);
+                addSystemEvent(`User ${user.id} left session ${sessionId}`);
 
                 // If session empty, maybe cleanup? For now keep it simple.
                 if (currentSession.size === 0) {
                     sessions.delete(sessionId);
+                    addSystemEvent(`Room ${sessionId} closed (empty)`);
                 } else {
                     // Broadcast update
                     io.to(sessionId).emit('session-update', Array.from(currentSession.values()));

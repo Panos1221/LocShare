@@ -1,5 +1,5 @@
 import { Minus, Plus, Crosshair, Compass, EyeOff, Eye } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 

@@ -3,7 +3,7 @@ import { Users, ChevronUp, ChevronDown, Navigation } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import type { UserLocation } from "@/lib/locationStore";
-import { getColorFromValue } from "./CustomColorPicker";
+import { getColorFromValue } from "@/components/color/CustomColorPicker";
 import { cn } from "@/lib/utils";
 
 interface MembersListProps {
@@ -26,7 +26,7 @@ export function MembersList({ members, onMemberClick }: MembersListProps) {
         className="hidden md:block"
       >
         <div className="glass rounded-2xl border border-border/50 p-4 shadow-soft">
-          <button 
+          <button
             onClick={() => setIsExpanded(!isExpanded)}
             className="w-full mb-3 flex items-center justify-between"
           >
@@ -42,7 +42,7 @@ export function MembersList({ members, onMemberClick }: MembersListProps) {
               <ChevronDown className="h-4 w-4 text-muted-foreground" />
             )}
           </button>
-          
+
           <AnimatePresence>
             {isExpanded && (
               <motion.div
@@ -53,9 +53,9 @@ export function MembersList({ members, onMemberClick }: MembersListProps) {
               >
                 <div className="max-h-64 space-y-2 overflow-auto scrollbar-thin">
                   {members.map((member) => (
-                    <MemberCard 
-                      key={member.id} 
-                      member={member} 
+                    <MemberCard
+                      key={member.id}
+                      member={member}
                       onClick={() => onMemberClick(member)}
                     />
                   ))}
@@ -98,9 +98,9 @@ export function MembersList({ members, onMemberClick }: MembersListProps) {
           <div className="px-4 pb-6 max-h-[50vh] overflow-auto">
             <div className="space-y-2">
               {members.map((member) => (
-                <MemberCard 
-                  key={member.id} 
-                  member={member} 
+                <MemberCard
+                  key={member.id}
+                  member={member}
                   onClick={() => {
                     onMemberClick(member);
                     setIsMobileExpanded(false);

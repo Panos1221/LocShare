@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { PinColor, UserLocation } from "@/lib/locationStore";
-import { getColorFromValue } from "./AdvancedColorPicker";
+import { getColorFromValue } from "@/components/color/AdvancedColorPicker";
 import { User, Home, Briefcase, Car, Bike, Footprints, Star, Heart, Plane, Coffee, Music, ShoppingCart, Camera, Anchor, Hash } from "lucide-react";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
