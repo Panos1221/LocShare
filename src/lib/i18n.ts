@@ -7,7 +7,7 @@ const resources = {
       hero: {
         title: "Share Location",
         subtitle: "Instantly",
-        description: "The simplest location sharing app. No accounts, no passwords, no personal data. Just share your location with friends using a passkey.",
+        description: "The simplest location sharing app. No accounts, no passwords, no personal data. Just share your location with friends using a passkey or link.",
         getStarted: "Get Started",
         learnMore: "Learn More",
       },
@@ -59,11 +59,11 @@ const resources = {
         title: "How It Works",
         step1: {
           title: "Configure Your Session",
-          description: "Choose a display name, create a unique passkey for your group, and customize your map marker with your favorite color and icon.",
+          description: "Choose a display name. Create a custom passkey or leave it blank to auto-generate a unique one.",
         },
         step2: {
-          title: "Share the Passkey",
-          description: "Distribute your unique passkey to your friends. Remember, it is case-sensitive, and they must enter the exact same passkey during registration to join your session.",
+          title: "Share the Access",
+          description: "Share the invite link, QR code, or passkey with friends. They can join instantly by scanning or clicking.",
         },
         step3: {
           title: "Real-time Connection",
@@ -86,7 +86,7 @@ const resources = {
         nameHelper: "Choose a unique name within your group",
         passkey: "Group Passkey",
         passkeyPlaceholder: "Enter your group's passkey",
-        passkeyHelper: "Case sensitive - minimum 3 characters",
+        passkeyHelper: "Optional - Leave blank to auto-generate a unique key",
         color: "Marker Color",
         colorHelper: "Your pin color on the map",
         submit: "Start Sharing",
@@ -113,6 +113,16 @@ const resources = {
         zoomIn: "Zoom In",
         zoomOut: "Zoom Out",
         error: "Geolocation Error",
+        share: "Share Session",
+      },
+      share: {
+        title: "Invite Friends",
+        subtitle: "Share this QR code or link to let others join your session instantly.",
+        copyLink: "Copy Invite Link",
+        copied: "Copied!",
+        scanQR: "Scan QR Code",
+        passkey: "Passkey",
+        shareVia: "Share via...",
       },
       common: {
         loading: "Loading...",
@@ -130,7 +140,7 @@ const resources = {
       hero: {
         title: "Comparte Ubicación",
         subtitle: "Al Instante",
-        description: "La app más simple para compartir ubicación. Sin cuentas, sin contraseñas, sin datos personales. Solo comparte tu ubicación con amigos usando una clave.",
+        description: "La app más simple para compartir ubicación. Sin cuentas, sin contraseñas, sin datos personales. Solo comparte tu ubicación con amigos usando una clave o enlace.",
         getStarted: "Comenzar",
         learnMore: "Saber Más",
       },
@@ -182,11 +192,11 @@ const resources = {
         title: "Cómo Funciona",
         step1: {
           title: "Configura tu Sesión",
-          description: "Elige un nombre, crea una clave única para tu grupo y personaliza tu marcador con tu color e icono favoritos.",
+          description: "Elige un nombre. Crea una clave personalizada o déjala en blanco para generar una única automáticamente.",
         },
         step2: {
-          title: "Comparte la Clave",
-          description: "Distribuye la clave a tus amigos. Recuerda que distingue mayúsculas y deben ingresar la misma clave al registrarse para unirse.",
+          title: "Comparte el Acceso",
+          description: "Comparte el enlace, código QR o clave con amigos. Pueden unirse al instante escaneando o haciendo clic.",
         },
         step3: {
           title: "Conexión en Tiempo Real",
@@ -209,7 +219,7 @@ const resources = {
         nameHelper: "Elige un nombre único en tu grupo",
         passkey: "Clave del Grupo",
         passkeyPlaceholder: "Ingresa la clave de tu grupo",
-        passkeyHelper: "Distingue mayúsculas - mínimo 3 caracteres",
+        passkeyHelper: "Opcional - Déjalo en blanco para generar una clave única",
         color: "Color del Marcador",
         colorHelper: "Tu color de pin en el mapa",
         submit: "Comenzar a Compartir",
@@ -236,6 +246,16 @@ const resources = {
         zoomIn: "Acercar",
         zoomOut: "Alejar",
         error: "Error de Geolocalización",
+        share: "Compartir Sesión",
+      },
+      share: {
+        title: "Invitar Amigos",
+        subtitle: "Comparte este código QR o enlace para que otros se unan al instante.",
+        copyLink: "Copiar Enlace",
+        copied: "¡Copiado!",
+        scanQR: "Escanear QR",
+        passkey: "Clave",
+        shareVia: "Compartir vía...",
       },
       common: {
         loading: "Cargando...",
@@ -253,7 +273,7 @@ const resources = {
       hero: {
         title: "Partagez Votre",
         subtitle: "Position",
-        description: "L'application de partage de position la plus simple. Pas de comptes, pas de mots de passe, pas de données personnelles. Partagez simplement votre position avec vos amis via une clé.",
+        description: "L'application de partage de position la plus simple. Pas de comptes, pas de mots de passe, pas de données personnelles. Partagez simplement votre position avec vos amis via une clé ou un lien.",
         getStarted: "Commencer",
         learnMore: "En Savoir Plus",
       },
@@ -305,11 +325,11 @@ const resources = {
         title: "Comment Ça Marche",
         step1: {
           title: "Configurez Votre Session",
-          description: "Choisissez un nom d'affichage, créez une clé unique pour votre groupe et personnalisez votre marqueur avec votre couleur et icône préférées.",
+          description: "Choisissez un nom. Créez une clé personnalisée ou laissez vide pour en générer une unique automatiquement.",
         },
         step2: {
-          title: "Partagez la Clé",
-          description: "Distribuez votre clé à vos amis. Attention, elle est sensible à la casse et ils doivent saisir exactement la même clé lors de l'inscription pour vous rejoindre.",
+          title: "Partagez l'Accès",
+          description: "Partagez le lien d'invitation, le code QR ou la clé. Ils peuvent rejoindre instantanément en scannant ou en cliquant.",
         },
         step3: {
           title: "Connexion en Temps Réel",
@@ -332,7 +352,7 @@ const resources = {
         nameHelper: "Choisissez un nom unique dans votre groupe",
         passkey: "Clé du Groupe",
         passkeyPlaceholder: "Entrez la clé de votre groupe",
-        passkeyHelper: "Sensible à la casse - minimum 3 caractères",
+        passkeyHelper: "Facultatif - Laisser vide pour générer une clé unique",
         color: "Couleur du Marqueur",
         colorHelper: "Votre couleur de pin sur la carte",
         submit: "Commencer le Partage",
@@ -359,6 +379,16 @@ const resources = {
         zoomIn: "Zoom Avant",
         zoomOut: "Zoom Arrière",
         error: "Erreur de Géolocalisation",
+        share: "Partager la Session",
+      },
+      share: {
+        title: "Inviter des Amis",
+        subtitle: "Partagez ce code QR ou ce lien pour permettre aux autres de rejoindre instantanément.",
+        copyLink: "Copier le Lien",
+        copied: "Copié !",
+        scanQR: "Scanner le QR",
+        passkey: "Clé",
+        shareVia: "Partager via...",
       },
       common: {
         loading: "Chargement...",
@@ -376,7 +406,7 @@ const resources = {
       hero: {
         title: "Standort Teilen",
         subtitle: "Sofort",
-        description: "Die einfachste App zum Teilen des Standorts. Keine Konten, keine Passwörter, keine persönlichen Daten. Teilen Sie einfach Ihren Standort mit Freunden über einen Zugangsschlüssel.",
+        description: "Die einfachste App zum Teilen des Standorts. Keine Konten, keine Passwörter, keine persönlichen Daten. Teilen Sie einfach Ihren Standort mit Freunden über einen Schlüssel oder Link.",
         getStarted: "Loslegen",
         learnMore: "Mehr erfahren",
       },
@@ -428,11 +458,11 @@ const resources = {
         title: "So funktioniert es",
         step1: {
           title: "Sitzung konfigurieren",
-          description: "Wählen Sie einen Anzeigenamen, erstellen Sie einen eindeutigen Gruppenschlüssel und gestalten Sie Ihren Kartenmarker mit Farbe und Symbol individuell.",
+          description: "Wählen Sie einen Namen. Erstellen Sie einen eigenen Schlüssel oder lassen Sie ihn für einen automatischen leer.",
         },
         step2: {
-          title: "Schlüssel teilen",
-          description: "Geben Sie den Schlüssel an Ihre Freunde weiter. Er unterscheidet Groß-/Kleinschreibung, und sie müssen bei der Registrierung exakt denselben Schlüssel eingeben.",
+          title: "Zugang Teilen",
+          description: "Teilen Sie den Einladungslink, QR-Code oder Schlüssel. Freunde können durch Scannen oder Klicken sofort beitreten.",
         },
         step3: {
           title: "Echtzeit-Verbindung",
@@ -455,7 +485,7 @@ const resources = {
         nameHelper: "Wählen Sie einen eindeutigen Namen in Ihrer Gruppe",
         passkey: "Gruppenschlüssel",
         passkeyPlaceholder: "Geben Sie Ihren Gruppenschlüssel ein",
-        passkeyHelper: "Groß-/Kleinschreibung beachten - mindestens 3 Zeichen",
+        passkeyHelper: "Optional - Leer lassen für eindeutigen Auto-Schlüssel",
         color: "Markierungsfarbe",
         colorHelper: "Ihre Pin-Farbe auf der Karte",
         submit: "Teilen starten",
@@ -482,6 +512,16 @@ const resources = {
         zoomIn: "Vergrößern",
         zoomOut: "Verkleinern",
         error: "Geolocation-Fehler",
+        share: "Sitzung Teilen",
+      },
+      share: {
+        title: "Freunde Einladen",
+        subtitle: "Teilen Sie diesen QR-Code oder Link, damit andere sofort beitreten können.",
+        copyLink: "Link Kopieren",
+        copied: "Kopiert!",
+        scanQR: "QR Scannen",
+        passkey: "Schlüssel",
+        shareVia: "Teilen über...",
       },
       common: {
         loading: "Laden...",
@@ -499,7 +539,7 @@ const resources = {
       hero: {
         title: "Condividi Posizione",
         subtitle: "Istantaneamente",
-        description: "L'app più semplice per condividere la posizione. Niente account, password o dati personali. Condividi la tua posizione con gli amici usando una chiave di accesso.",
+        description: "L'app più semplice per condividere la posizione. Niente account, password o dati personali. Condividi la tua posizione con gli amici usando una chiave o un link.",
         getStarted: "Inizia",
         learnMore: "Scopri di più",
       },
@@ -551,11 +591,11 @@ const resources = {
         title: "Come Funziona",
         step1: {
           title: "Configura la Sessione",
-          description: "Scegli un nome, crea una chiave univoca per il tuo gruppo e personalizza il tuo marcatore con il tuo colore e la tua icona preferiti.",
+          description: "Scegli un nome. Crea una chiave personalizzata o lascia vuoto per generarne una unica automaticamente.",
         },
         step2: {
-          title: "Condividi la Chiave",
-          description: "Distribuisci la chiave ai tuoi amici. Ricorda che distingue tra maiuscole e minuscole e devono inserire la stessa chiave al momento della registrazione per unirsi.",
+          title: "Condividi l'Accesso",
+          description: "Condividi il link, codice QR o la chiave. Gli amici possono unirsi istantaneamente scansionando o cliccando.",
         },
         step3: {
           title: "Connessione in Tempo Reale",
@@ -578,7 +618,7 @@ const resources = {
         nameHelper: "Scegli un nome univoco nel gruppo",
         passkey: "Chiave del gruppo",
         passkeyPlaceholder: "Inserisci la chiave del gruppo",
-        passkeyHelper: "Distingue maiuscole e minuscole - minimo 3 caratteri",
+        passkeyHelper: "Opzionale - Lascia vuoto per generare chiave unica",
         color: "Colore marcatore",
         colorHelper: "Il tuo colore sulla mappa",
         submit: "Condividi ora",
@@ -605,6 +645,16 @@ const resources = {
         zoomIn: "Zoom avanti",
         zoomOut: "Zoom indietro",
         error: "Errore di Geolocalizzazione",
+        share: "Condividi Sessione",
+      },
+      share: {
+        title: "Invita Amici",
+        subtitle: "Condividi questo codice QR o link per far unire gli altri istantaneamente.",
+        copyLink: "Copia Link",
+        copied: "Copiato!",
+        scanQR: "Scansiona QR",
+        passkey: "Chiave",
+        shareVia: "Condividi tramite...",
       },
       common: {
         loading: "Caricamento...",
@@ -622,7 +672,7 @@ const resources = {
       hero: {
         title: "Partilhar Localização",
         subtitle: "Instantaneamente",
-        description: "A app mais simples para partilhar localização. Sem contas, senhas ou dados pessoais. Apenas partilhe com amigos usando uma chave de acesso.",
+        description: "A app mais simples para partilhar localização. Sem contas, senhas ou dados pessoais. Apenas partilhe com amigos usando uma chave de acesso ou link.",
         getStarted: "Começar",
         learnMore: "Saber Mais",
       },
@@ -674,11 +724,11 @@ const resources = {
         title: "Como Funciona",
         step1: {
           title: "Configure a sua Sessão",
-          description: "Escolha um nome de exibição, crie uma chave única para o seu grupo e personalize o seu marcador com a sua cor e ícone favoritos.",
+          description: "Escolha um nome. Crie uma chave personalizada ou deixe em branco para gerar uma única automaticamente.",
         },
         step2: {
-          title: "Partilhe a Chave",
-          description: "Distribua a sua chave única pelos seus amigos. Lembre-se, ela diferencia maiúsculas e devem introduzir exatamente a mesma chave ao registar para se juntarem.",
+          title: "Partilhe o Acesso",
+          description: "Partilhe o link, código QR ou chave. Os amigos podem juntar-se instantaneamente ao digitalizar ou clicar.",
         },
         step3: {
           title: "Ligação em Tempo Real",
@@ -701,7 +751,7 @@ const resources = {
         nameHelper: "Escolha um nome único no grupo",
         passkey: "Chave do grupo",
         passkeyPlaceholder: "Insira a chave do grupo",
-        passkeyHelper: "Diferencia maiúsculas - mínimo 3 caracteres",
+        passkeyHelper: "Opcional - Deixe vazio para gerar chave única",
         color: "Cor do marcador",
         colorHelper: "A sua cor no mapa",
         submit: "Começar a Partilhar",
@@ -728,6 +778,16 @@ const resources = {
         zoomIn: "Aumentar Zoom",
         zoomOut: "Diminuir Zoom",
         error: "Erro de Geolocalização",
+        share: "Partilhar Sessão",
+      },
+      share: {
+        title: "Convidar Amigos",
+        subtitle: "Partilhe este código QR ou link para outros se juntarem instantaneamente.",
+        copyLink: "Copiar Link",
+        copied: "Copiado!",
+        scanQR: "Digitalizar QR",
+        passkey: "Chave",
+        shareVia: "Partilhar via...",
       },
       common: {
         loading: "A carregar...",

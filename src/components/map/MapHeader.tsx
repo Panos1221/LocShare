@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { LogOut, MapPin, Wifi, WifiOff, Menu } from "lucide-react";
+import { LogOut, MapPin, Wifi, WifiOff, Menu, Share2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -11,6 +11,7 @@ interface MapHeaderProps {
   isConnected: boolean;
   currentMapStyle: string;
   onMapStyleChange: (style: string) => void;
+  onShare: () => void;
   onLeave: () => void;
 }
 
@@ -18,6 +19,7 @@ export function MapHeader({
   isConnected,
   currentMapStyle,
   onMapStyleChange,
+  onShare,
   onLeave
 }: MapHeaderProps) {
   const { t } = useTranslation();
@@ -66,6 +68,17 @@ export function MapHeader({
           />
 
           <div className="h-8 w-[1px] bg-border/50" />
+
+          {/* Share Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onShare}
+            className="h-10 w-10 rounded-full hover:bg-muted"
+            title={t('share.title')}
+          >
+            <Share2 className="h-5 w-5" />
+          </Button>
 
           {/* Theme Toggle */}
           <ThemeToggle />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Key, User } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -21,20 +21,30 @@ const Register = () => {
   const [color, setColor] = useState<PinColor | string>("teal");
   const [icon, setIcon] = useState("user");
 
+  // Check for invite code in URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    if (code) {
+      setPasskey(code);
+    }
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (name.trim() && passkey.trim()) {
+    if (name.trim()) {
+      const finalPasskey = passkey.trim() || Math.random().toString(36).slice(2, 8).toUpperCase();
       setSession({
         name: name.trim(),
-        passkey: passkey.trim(),
+        passkey: finalPasskey,
         color,
         icon,
       });
-      navigate("/map");
+      navigate("/map", { state: { isNewSession: true } });
     }
   };
 
-  const isValid = name.trim().length > 0 && passkey.trim().length >= 3;
+  const isValid = name.trim().length > 0;
 
   return (
     <div className="min-h-screen bg-background gradient-hero">

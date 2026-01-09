@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { MapHeader } from "@/components/map/MapHeader";
 import { MembersList } from "@/components/session/MembersList";
+import { ShareSessionModal } from "@/components/map/ShareSessionModal";
 import { createMarkerElement } from "@/components/map/MapMarker";
 import { useLocationStore, type UserLocation } from "@/lib/locationStore";
 import { mapStyles } from "@/lib/mapStyles";
@@ -22,6 +23,7 @@ import { calculateDistance } from "@/lib/geoUtils";
 const MapView = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const markersRef = useRef<Map<string, mapboxgl.Marker>>(new Map());
@@ -40,6 +42,16 @@ const MapView = () => {
     return isDark ? style?.dark || '' : style?.light || '';
   });
   const [mapBearing, setMapBearing] = useState(0);
+  const [showShareModal, setShowShareModal] = useState(false);
+
+  // Auto-open share modal if just registered
+  useEffect(() => {
+    if (location.state?.isNewSession) {
+      setShowShareModal(true);
+      // Clear location state to prevent modal from re-opening on refresh
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   // Redirect if no session
   useEffect(() => {
@@ -489,7 +501,14 @@ const MapView = () => {
         isConnected={isConnected}
         currentMapStyle={currentStyleId}
         onMapStyleChange={handleStyleChange}
+        onShare={() => setShowShareModal(true)}
         onLeave={handleLeave}
+      />
+
+      <ShareSessionModal
+        isOpen={showShareModal}
+        onClose={() => setShowShareModal(false)}
+        passkey={session.passkey}
       />
 
       {/* Members Panel - Floating Card Left */}

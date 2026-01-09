@@ -16,6 +16,10 @@ LocShare is a simple, elegant, and privacy-focused application that allows you t
   - No personal data or location history stored.
   - **Stop Sharing** toggle to instantly hide your location while staying in the room.
   - Ephemeral sessions that disappear when you're done.
+- **� Smart Pairing**:
+  - **Link & QR Sharing**: Effortlessly invite friends via direct links or scannable QR codes.
+  - **Optional Passkey**: Create custom group passkeys or leave it blank to **auto-generate** a unique 6-character key.
+  - **Auto-Join**: Share links include the session code for instant one-click joining.
 - **🗺️ Interactive Maps**: High-performance vector maps powered by Mapbox GL JS with support for multiple styles (Streets, Navigation, Dark, Satellite) and a one-click **Compass** to reset bearing to North.
 - **🧭 Smart Navigation**: One-tap navigation shortcuts for **Google Maps**, **Apple Maps**, and **Waze**.
 - **📏 Distance Tracking**: Real-time distance calculation between you and other group members.
@@ -35,6 +39,7 @@ LocShare is a simple, elegant, and privacy-focused application that allows you t
 - **Framer Motion** for smooth animations
 - **Zustand** for lightweight state management
 - **Mapbox GL JS** for advanced map rendering
+- **qrcode.react** for session QR code generation
 - **i18next** for multi-language support
 
 ### Backend
