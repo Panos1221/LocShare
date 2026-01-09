@@ -4,6 +4,10 @@
 
 LocShare is a simple, elegant, and privacy-focused application that allows you to share your real-time location with friends and family using a simple passkey. No accounts, no tracking, no footprints.
 
+## 🌐 Live Demo
+
+**This app is hosted and live on Render**: [https://locshare-xj5k.onrender.com/](https://locshare-xj5k.onrender.com/)
+
 ## ✨ Key Features
 
 - **🚀 Real-Time Sharing**: Powered by WebSockets (Socket.io) for instant location updates across all devices.

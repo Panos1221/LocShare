@@ -4,11 +4,13 @@ import { ArrowRight, Users, Shield, Apple, Smartphone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { useIsInstalled } from "@/hooks/use-is-installed";
 
 export const HeroSection = () => {
   const { t } = useTranslation();
   const { scrollY } = useScroll();
   const [time, setTime] = useState(new Date());
+  const isInstalled = useIsInstalled();
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
@@ -79,12 +81,13 @@ export const HeroSection = () => {
             </div>
 
             {/* Mobile-only Install App Instructions */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="mt-12 lg:hidden"
-            >
+            {!isInstalled && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="mt-12 lg:hidden"
+              >
               <div className="glass rounded-[2rem] p-6 border border-primary/20 bg-background/30 backdrop-blur-xl">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -122,6 +125,7 @@ export const HeroSection = () => {
                 </div>
               </div>
             </motion.div>
+            )}
           </motion.div>
 
           <div className="relative hidden lg:block h-[600px]">
