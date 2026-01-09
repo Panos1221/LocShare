@@ -225,6 +225,12 @@ app.get('/health', healthAuth, (req, res) => {
   `);
 });
 
+// Catch-all route for SPA - serves index.html for any unknown routes
+// This MUST be the last route defined
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/index.html'));
+});
+
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
     cors: {
