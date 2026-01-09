@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Smartphone, Battery, Globe, Lock, Zap } from "lucide-react";
+import { Shield, Smartphone, Map, Globe, Lock, Zap } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const features = [
@@ -14,9 +14,9 @@ const features = [
         descKey: "features.device.description",
     },
     {
-        icon: Battery,
-        titleKey: "features.battery.title",
-        descKey: "features.battery.description",
+        icon: Map,
+        titleKey: "features.navigation.title",
+        descKey: "features.navigation.description",
     },
     {
         icon: Globe,

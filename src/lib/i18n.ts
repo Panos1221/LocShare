@@ -17,30 +17,30 @@ const resources = {
       },
       features: {
         title: "Why Use LocShare?",
-        subtitle: "Built for privacy, speed, and ease of use.",
+        subtitle: "Simple, private, and built for real-time connection.",
         privacy: {
           title: "Private by Design",
-          description: "Tracking is disabled. No data collection."
+          description: "No accounts, no tracking. Your location data is never stored."
         },
         device: {
           title: "Any Device",
-          description: "Works on iOS, Android, and Desktop. No app install needed."
+          description: "Works on your phone, tablet, or computer. No app install needed."
         },
-        battery: {
-          title: "Battery Efficient",
-          description: "Optimized to use minimal battery while keeping you connected."
+        navigation: {
+          title: "Smart Navigation",
+          description: "Navigate to your friends using Google Maps, Apple Maps, or Waze."
         },
         global: {
           title: "Works Everywhere",
-          description: "Share your location across the globe with low latency."
+          description: "Share your location across the globe with anyone, anywhere."
         },
         speed: {
           title: "Real-time Sync",
-          description: "See updates instantly as they happen."
+          description: "See movement instantly as it happens on the map."
         },
         secure: {
-          title: "Secure Groups",
-          description: "Only people with your unique passkey can join."
+          title: "Private Groups",
+          description: "Only people with your unique secret passkey can join your group."
         }
       },
       kofi: {
@@ -52,16 +52,16 @@ const resources = {
       howItWorks: {
         title: "How It Works",
         step1: {
-          title: "Enter Your Details",
-          description: "Choose a name, create a passkey for your group, and pick your marker color and icon.",
+          title: "Configure Your Session",
+          description: "Choose a display name, create a unique passkey for your group, and customize your map marker with your favorite color and icon.",
         },
         step2: {
           title: "Share the Passkey",
-          description: "Send the passkey to your friends. It's case-sensitive, so 'groupkey' differs from 'GrouPKey'.",
+          description: "Distribute your unique passkey to your friends. Remember, it is case-sensitive, and they must enter the exact same passkey during registration to join your session.",
         },
         step3: {
-          title: "See Each Other",
-          description: "Everyone with the same passkey sees each other's location in real-time on the map.",
+          title: "Real-time Connection",
+          description: "Once registered with the same passkey, everyone's location will be visible on the map instantly and securely.",
         },
       },
       privacy: {
@@ -134,30 +134,30 @@ const resources = {
       },
       features: {
         title: "¿Por qué elegir LocShare?",
-        subtitle: "Creado para privacidad, velocidad y facilidad de uso.",
+        subtitle: "Simple, privado y hecho para conectarse en tiempo real.",
         privacy: {
           title: "Privado por diseño",
-          description: "Tus datos de ubicación están encriptados y son efímeros."
+          description: "Sin cuentas ni rastreo. Tus datos de ubicación nunca se guardan."
         },
         device: {
           title: "Cualquier Dispositivo",
-          description: "Funciona en iOS, Android y PC. Sin instalar apps."
+          description: "Funciona en tu móvil, tablet u ordenador. Sin instalar apps."
         },
-        battery: {
-          title: "Batería Eficiente",
-          description: "Optimizado para usar mínima batería mientras te mantiene conectado."
+        navigation: {
+          title: "Navegación Inteligente",
+          description: "Navega hasta tus amigos con Google Maps, Apple Maps o Waze."
         },
         global: {
           title: "Funciona en Todas Partes",
-          description: "Comparte tu ubicación en todo el mundo con baja latencia."
+          description: "Comparte tu ubicación en todo el mundo con quien sea y donde sea."
         },
         speed: {
           title: "Sincronización Real",
-          description: "Ver actualizaciones al instante."
+          description: "Mira el movimiento al instante mientras sucede en el mapa."
         },
         secure: {
-          title: "Grupos Seguros",
-          description: "Solo personas con tu clave única pueden unirse."
+          title: "Grupos Privados",
+          description: "Solo personas con tu clave secreta única pueden unirse al grupo."
         }
       },
       kofi: {
@@ -169,16 +169,16 @@ const resources = {
       howItWorks: {
         title: "Cómo Funciona",
         step1: {
-          title: "Ingresa tus Datos",
-          description: "Elige un nombre, crea una clave para tu grupo y selecciona el color de tu marcador.",
+          title: "Configura tu Sesión",
+          description: "Elige un nombre, crea una clave única para tu grupo y personaliza tu marcador con tu color e icono favoritos.",
         },
         step2: {
           title: "Comparte la Clave",
-          description: "Envía la clave a tus amigos. Distingue mayúsculas, 'test' es diferente de 'Test'.",
+          description: "Distribuye la clave a tus amigos. Recuerda que distingue mayúsculas y deben ingresar la misma clave al registrarse para unirse.",
         },
         step3: {
-          title: "Véanse",
-          description: "Todos con la misma clave ven la ubicación de los demás en tiempo real en el mapa.",
+          title: "Conexión en Tiempo Real",
+          description: "Una vez registrados con la misma clave, la ubicación de todos será visible en el mapa de forma instantánea y segura.",
         },
       },
       privacy: {
@@ -251,30 +251,30 @@ const resources = {
       },
       features: {
         title: "Pourquoi Choisir LocShare?",
-        subtitle: "Conçu pour la confidentialité, la vitesse et la simplicité.",
+        subtitle: "Simple, privé et conçu pour la connexion en temps réel.",
         privacy: {
           title: "Privé par Conception",
-          description: "Vos données de location sont cryptées et éphémères."
+          description: "Pas de compte, pas de suivi. Vos données ne sont jamais stockées."
         },
         device: {
           title: "Tout Appareil",
-          description: "Marche sur iOS, Android et PC. Pas d'installation requise."
+          description: "Fonctionne sur votre téléphone, tablette ou ordinateur. Aucune installation requise."
         },
-        battery: {
-          title: "Batterie Efficace",
-          description: "Optimisé pour minimiser l'usage de la batterie."
+        navigation: {
+          title: "Navigation Inteligente",
+          description: "Naviguez vers vos amis avec Google Maps, Apple Maps ou Waze."
         },
         global: {
           title: "Marche Partout",
-          description: "Partagez votre position partout dans le monde."
+          description: "Partagez votre position dans le monde entier avec n'importe qui, n'importe où."
         },
         speed: {
           title: "Sync Temps Réel",
-          description: "Voyez les mises à jour instantanément."
+          description: "Voyez les mouvements instantanément au fur et à mesure qu'ils se produisent sur la carte."
         },
         secure: {
-          title: "Groupes Sécurisés",
-          description: "Seuls les détenteurs de la clé peuvent rejoindre."
+          title: "Groupes Privés",
+          description: "Seules les personnes disposant de votre clé secrète unique peuvent rejoindre votre groupe."
         }
       },
       kofi: {
@@ -286,16 +286,16 @@ const resources = {
       howItWorks: {
         title: "Comment Ça Marche",
         step1: {
-          title: "Entrez Vos Infos",
-          description: "Choisissez un nom, créez une clé pour votre groupe et sélectionnez la couleur de votre marqueur.",
+          title: "Configurez Votre Session",
+          description: "Choisissez un nom d'affichage, créez une clé unique pour votre groupe et personnalisez votre marqueur avec votre couleur et icône préférées.",
         },
         step2: {
           title: "Partagez la Clé",
-          description: "Envoyez la clé à vos amis. Elle est sensible à la casse, 'test' diffère de 'Test'.",
+          description: "Distribuez votre clé à vos amis. Attention, elle est sensible à la casse et ils doivent saisir exactement la même clé lors de l'inscription pour vous rejoindre.",
         },
         step3: {
-          title: "Voyez-Vous",
-          description: "Tous ceux avec la même clé voient la position des autres en temps réel sur la carte.",
+          title: "Connexion en Temps Réel",
+          description: "Une fois inscrits avec la même clé, la position de chacun sera visible instantanément et en toute sécurité sur la carte.",
         },
       },
       privacy: {
@@ -368,30 +368,30 @@ const resources = {
       },
       features: {
         title: "Warum LocShare?",
-        subtitle: "Gebaut für Privatsphäre, Geschwindigkeit und Einfachheit.",
+        subtitle: "Einfach, privat und für Echtzeit-Verbindungen gebaut.",
         privacy: {
           title: "Privatphäre Design",
-          description: "Ihre Standortdaten sind verschlüsselt und flüchtig."
+          description: "Keine Konten, kein Tracking. Ihre Standortdaten werden nie gespeichert."
         },
         device: {
           title: "Jedes Gerät",
-          description: "Funktioniert auf iOS, Android und Desktop. Keine Installation."
+          description: "Funktioniert auf Ihrem Handy, Tablet oder Computer. Keine App-Installation erforderlich."
         },
-        battery: {
-          title: "Batterieeffizient",
-          description: "Optimiert für minimalen Batterieverbrauch."
+        navigation: {
+          title: "Intelligente Navigation",
+          description: "Navigieren Sie zu Ihren Freunden mit Google Maps, Apple Maps oder Waze."
         },
         global: {
           title: "Funktioniert Überall",
-          description: "Teilen Sie Ihren Standort weltweit."
+          description: "Teilen Sie Ihren Standort weltweit mit jedem und überall."
         },
         speed: {
           title: "Echtzeit-Sync",
-          description: "Sehen Sie Updates sofort."
+          description: "Sehen Sie Bewegungen sofort, während sie auf der Karte passieren."
         },
         secure: {
-          title: "Sichere Gruppen",
-          description: "Nur Personen mit Ihrem Schlüssel können beitreten."
+          title: "Private Gruppen",
+          description: "Nur Personen mit Ihrem eindeutigen geheimen Zugangsschlüssel können Ihrer Gruppe beitreten."
         }
       },
       kofi: {
@@ -401,18 +401,18 @@ const resources = {
         thankYou: "Jede Spende hilft den Service zu verbessern."
       },
       howItWorks: {
-        title: "Wie es funktioniert",
+        title: "So funktioniert es",
         step1: {
-          title: "Details eingeben",
-          description: "Wählen Sie einen Namen, erstellen Sie einen Zugangsschlüssel für Ihre Gruppe und wählen Sie Ihre Markierungsfarbe.",
+          title: "Sitzung konfigurieren",
+          description: "Wählen Sie einen Anzeigenamen, erstellen Sie einen eindeutigen Gruppenschlüssel und gestalten Sie Ihren Kartenmarker mit Farbe und Symbol individuell.",
         },
         step2: {
           title: "Schlüssel teilen",
-          description: "Senden Sie den Schlüssel an Freunde. Er unterscheidet Groß-/Kleinschreibung ('test' ≠ 'Test').",
+          description: "Geben Sie den Schlüssel an Ihre Freunde weiter. Er unterscheidet Groß-/Kleinschreibung, und sie müssen bei der Registrierung exakt denselben Schlüssel eingeben.",
         },
         step3: {
-          title: "Sich gegenseitig sehen",
-          description: "Alle mit demselben Schlüssel sehen sich gegenseitig in Echtzeit auf der Karte.",
+          title: "Echtzeit-Verbindung",
+          description: "Sobald sie mit demselben Schlüssel registriert sind, wird der Standort aller Teilnehmer sofort und sicher auf der Karte angezeigt.",
         },
       },
       privacy: {
@@ -485,30 +485,30 @@ const resources = {
       },
       features: {
         title: "Perché LocShare?",
-        subtitle: "Costruito per privacy, velocità e semplicità.",
+        subtitle: "Semplice, privato e creato per la connessione in tempo reale.",
         privacy: {
           title: "Privacy by Design",
-          description: "I tuoi dati sono crittografati ed effimeri."
+          description: "Niente account, niente tracciamento. I tuoi dati di posizione non vengono mai memorizzati."
         },
         device: {
           title: "Qualsiasi Dispositivo",
-          description: "Funziona su iOS, Android e Desktop. Nessuna installazione."
+          description: "Funziona sul tuo telefono, tablet o computer. Nessuna installazione richiesta."
         },
-        battery: {
-          title: "Batteria Efficiente",
-          description: "Ottimizzato per un consumo minimo della batteria."
+        navigation: {
+          title: "Navigazione Intelligente",
+          description: "Naviga verso i tuoi amici usando Google Maps, Apple Maps o Waze."
         },
         global: {
           title: "Funziona Ovunque",
-          description: "Condividi la tua posizione in tutto il mondo."
+          description: "Condividi la tua posizione in tutto il mondo con chiunque, ovunque."
         },
         speed: {
           title: "Sync Real-time",
-          description: "Vedi gli aggiornamenti istantaneamente."
+          description: "Vedi i movimenti istantaneamente mentre accadono sulla mappa."
         },
         secure: {
-          title: "Gruppi Sicuri",
-          description: "Solo chi ha la chiave può unirsi."
+          title: "Gruppi Privati",
+          description: "Solo le persone con la tua chiave segreta univoca possono unirsi al tuo gruppo."
         }
       },
       kofi: {
@@ -518,18 +518,18 @@ const resources = {
         thankYou: "Ogni donazione aiuta a migliorare il servizio."
       },
       howItWorks: {
-        title: "Come funziona",
+        title: "Come Funziona",
         step1: {
-          title: "Inserisci i tuoi dati",
-          description: "Scegli un nome, crea una chiave per il tuo gruppo e scegli il colore del marcatore.",
+          title: "Configura la Sessione",
+          description: "Scegli un nome, crea una chiave univoca per il tuo gruppo e personalizza il tuo marcatore con il tuo colore e la tua icona preferiti.",
         },
         step2: {
-          title: "Condividi la chiave",
-          description: "Invia la chiave agli amici. Fa distinzione tra maiuscole e minuscole ('test' ≠ 'Test').",
+          title: "Condividi la Chiave",
+          description: "Distribuisci la chiave ai tuoi amici. Ricorda che distingue tra maiuscole e minuscole e devono inserire la stessa chiave al momento della registrazione per unirsi.",
         },
         step3: {
-          title: "Vedetevi a vicenda",
-          description: "Tutti coloro con la stessa chiave si vedono in tempo reale sulla mappa.",
+          title: "Connessione in Tempo Reale",
+          description: "Una volta registrati con la stessa chiave, la posizione di tutti sarà visibile sulla mappa istantaneamente e in modo sicuro.",
         },
       },
       privacy: {
@@ -602,30 +602,30 @@ const resources = {
       },
       features: {
         title: "Porquê LocShare?",
-        subtitle: "Construído para privacidade, velocidade e facilidade.",
+        subtitle: "Simples, privado e feito para ligação em tempo real.",
         privacy: {
           title: "Privacidade por Design",
-          description: "Os seus dados são encriptados e efémeros."
+          description: "Sem contas, sem rastreio. Os seus dados de localização nunca são guardados."
         },
         device: {
           title: "Qualquer Dispositivo",
-          description: "Funciona em iOS, Android e Desktop. Sem instalação."
+          description: "Funciona no seu telemóvel, tablet ou computador. Sem instalação de apps."
         },
-        battery: {
-          title: "Bateria Eficiente",
-          description: "Otimizado para consumo mínimo de bateria."
+        navigation: {
+          title: "Navegação Inteligente",
+          description: "Navegue para os seus amigos usando Google Maps, Apple Maps ou Waze."
         },
         global: {
           title: "Funciona em Todo o Lado",
-          description: "Partilhe a sua localização globalmente."
+          description: "Partilhe a sua localização em todo o mundo com qualquer pessoa, em qualquer lugar."
         },
         speed: {
           title: "Sincronização Real",
-          description: "Veja atualizações instantaneamente."
+          description: "Veja o movimento instantaneamente enquanto acontece no mapa."
         },
         secure: {
-          title: "Grupos Seguros",
-          description: "Apenas pessoas com a chave podem entrar."
+          title: "Grupos Privados",
+          description: "Apenas pessoas com a sua chave secreta única podem juntar-se ao seu grupo."
         }
       },
       kofi: {
@@ -635,18 +635,18 @@ const resources = {
         thankYou: "Cada doação ajuda a melhorar o serviço."
       },
       howItWorks: {
-        title: "Como funciona",
+        title: "Como Funciona",
         step1: {
-          title: "Insira os seus dados",
-          description: "Escolha um nome, crie uma chave para o seu grupo e escolha a cor do marcador.",
+          title: "Configure a sua Sessão",
+          description: "Escolha um nome de exibição, crie uma chave única para o seu grupo e personalize o seu marcador com a sua cor e ícone favoritos.",
         },
         step2: {
-          title: "Partilhe a chave",
-          description: "Envie a chave aos amigos. Diferencia maiúsculas de minúsculas ('test' ≠ 'Test').",
+          title: "Partilhe a Chave",
+          description: "Distribua a sua chave única pelos seus amigos. Lembre-se, ela diferencia maiúsculas e devem introduzir exatamente a mesma chave ao registar para se juntarem.",
         },
         step3: {
-          title: "Vejam-se",
-          description: "Todos com a mesma chave veem-se em tempo real no mapa.",
+          title: "Ligação em Tempo Real",
+          description: "Uma vez registados com a mesma chave, a localização de todos ficará visível no mapa instantaneamente e de forma segura.",
         },
       },
       privacy: {

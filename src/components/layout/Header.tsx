@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { LanguageSelector } from "@/components/ui/LanguageSelector";
-import { Navigation } from "lucide-react";
+import { Navigation, Rocket } from "lucide-react";
+import i18n from "@/lib/i18n";
 
 export function Header() {
   return (
@@ -41,6 +42,26 @@ export function Header() {
           <div className="w-px h-4 bg-border/50" />
           <ThemeToggle />
         </div>
+      </motion.div>
+
+      {/* Bottom Left - Get Started Button */}
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "circOut", delay: 0.4 }}
+        className="fixed bottom-8 left-8 z-50"
+      >
+        <Link
+          to="/register"
+          className="glass group flex items-center gap-3 px-6 py-3 rounded-2xl border border-primary/20 hover:border-primary/50 shadow-2xl backdrop-blur-xl bg-primary/10 hover:bg-primary/20 transition-all duration-300"
+        >
+          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/20 group-hover:bg-primary/30 transition-colors">
+            <Rocket className="w-4 h-4 text-primary group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-300" />
+          </div>
+          <span className="font-display font-bold text-sm tracking-tight text-foreground">
+            {i18n.t('hero.getStarted')}
+          </span>
+        </Link>
       </motion.div>
     </>
   );
